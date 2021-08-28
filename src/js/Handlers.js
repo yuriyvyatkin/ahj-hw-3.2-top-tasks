@@ -27,7 +27,9 @@ export default class Handlers {
   }
 
   filterTasks() {
-    const callback = (todo) => todo.content.startsWith(this.taskInput.value.toLowerCase())
+    const callback = (todo) => todo.content.toLowerCase().startsWith(
+      this.taskInput.value.toLowerCase(),
+    )
       && todo.pinned === false;
     const filteredTodos = this.todos.filter(callback);
     this.tasksRenderer.render(this.templateEngine.getTodosHTML(filteredTodos));
